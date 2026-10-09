@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "697979857825",
+    "project_id": "coldchainmonitor-32ba5",
+    "storage_bucket": "coldchainmonitor-32ba5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:697979857825:android:b1276345226f7ea9edb9e0",
+        "android_client_info": {
+          "package_name": "com.example.coldchainmonitor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCu8BIYkzHUc1uHX2Faqg_zjoKu_RcFx1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
