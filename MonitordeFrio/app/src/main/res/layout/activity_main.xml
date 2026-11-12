@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F6F9"
+    android:padding="20dp">
+
+    <!-- ========================================================= -->
+    <!-- VISTA 1: LOGIN Y REGISTRO                                 -->
+    <!-- ========================================================= -->
+    <LinearLayout
+        android:id="@+id/layoutAuth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tvAuthTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
+            android:text="Iniciar Sesión"
+            android:textColor="#1A202C"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etNombre"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginBottom="12dp"
+            android:background="@android:drawable/edit_text"
+            android:hint="Nombre completo"
+            android:inputType="textPersonName"
+            android:paddingHorizontal="14dp"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/etCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginBottom="12dp"
+            android:background="@android:drawable/edit_text"
+            android:hint="Correo electrónico"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="14dp" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:drawable/edit_text"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:paddingHorizontal="14dp" />
+
+        <Button
+            android:id="@+id/btnAccionAuth"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:backgroundTint="#2563EB"
+            android:text="Ingresar"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCambiarModoAuth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:text="¿No tienes cuenta? Regístrate aquí"
+            android:textColor="#2563EB"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- ========================================================= -->
+    <!-- VISTA 2: DASHBOARD MONITOR DE FRÍO (TIEMPO REAL)          -->
+    <!-- ========================================================= -->
+    <LinearLayout
+        android:id="@+id/layoutDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cámara Frigorífica #1"
+                android:textColor="#1A202C"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnCerrarSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:backgroundTint="#64748B"
+                android:text="Salir"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Estado de conexión MQTT -->
+        <TextView
+            android:id="@+id/tvEstadoMqtt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Conectando al servidor MQTT..."
+            android:textColor="#64748B"
+            android:textSize="13sp" />
+
+        <!-- Banner de Alerta / Notificación MCU2 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardAlerta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#DCFCE7"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvTituloAlerta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SISTEMA NORMAL"
+                    android:textColor="#166534"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDetalleAlerta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Sin alertas activas en MCU2."
+                    android:textColor="#15803D"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Tarjeta Temperatura (MCU1) -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TEMPERATURA ACTUAL (MCU1)"
+                    android:textColor="#64748B"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTemperatura"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="--.- °C"
+                    android:textColor="#0F172A"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Tarjeta Estado Puerta (MCU1) -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ESTADO DE LA PUERTA"
+                    android:textColor="#64748B"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvEstadoPuerta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Esperando datos..."
+                    android:textColor="#0F172A"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</FrameLayout>
